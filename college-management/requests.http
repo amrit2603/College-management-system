@@ -1,0 +1,77 @@
+### Create professors
+POST http://localhost:8080/api/professors
+Content-Type: application/json
+
+{"title": "Dr. Rao"}
+
+###
+POST http://localhost:8080/api/professors
+Content-Type: application/json
+
+{"title": "Prof. Iyer"}
+
+### Create subjects
+POST http://localhost:8080/api/subjects
+Content-Type: application/json
+
+{"title": "Maths"}
+
+###
+POST http://localhost:8080/api/subjects
+Content-Type: application/json
+
+{"title": "Physics"}
+
+### Create students
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{"name": "Asha"}
+
+###
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{"name": "Ravi"}
+
+### Professor 1 teaches subjects 1 and 2 (one-to-many)
+POST http://localhost:8080/api/professors/1/subjects/1
+
+###
+POST http://localhost:8080/api/professors/1/subjects/2
+
+### Students enroll in subjects (many-to-many)
+POST http://localhost:8080/api/students/1/subjects/1
+
+###
+POST http://localhost:8080/api/students/2/subjects/1
+
+### Students get professors (many-to-many)
+POST http://localhost:8080/api/students/1/professors/1
+
+###
+POST http://localhost:8080/api/students/1/professors/2
+
+### Admission record (one-to-one)
+POST http://localhost:8080/api/students/1/admission-record
+Content-Type: application/json
+
+{"fees": 50000}
+
+### View everything
+GET http://localhost:8080/api/professors
+
+###
+GET http://localhost:8080/api/students
+
+###
+GET http://localhost:8080/api/subjects
+
+###
+GET http://localhost:8080/api/admission-records
+
+### Unassign examples
+DELETE http://localhost:8080/api/students/2/subjects/1
+
+###
+DELETE http://localhost:8080/api/professors/1/subjects/2
